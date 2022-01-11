@@ -1,0 +1,38 @@
+import * as ReactDOM from "react-dom";
+import * as React from "react";
+import { IInputs, IOutputs } from "./generated/ManifestTypes";
+import { initializeIcons } from "@fluentui/react";
+import {
+  PCFControlContextService,
+  ServiceProvider,
+  StandardControlReact,
+} from "pcf-react";
+import { ImageUploadComponent } from "./components";
+import { ControlContext } from "../shared";
+
+export class ImageUpload extends StandardControlReact<IInputs, IOutputs> {
+  constructor() {
+    super();
+    initializeIcons();
+    this.reactCreateElement = (
+      container: HTMLDivElement,
+      width: number | undefined,
+      height: number | undefined,
+      serviceProvider: ServiceProvider
+    ) => {
+      const service = serviceProvider.get<PCFControlContextService>(
+        PCFControlContextService.serviceProviderName
+      );
+
+      ReactDOM.render(
+        <ControlContext.Provider value={service}>
+          <ImageUploadComponent
+            height={height}
+            width={width}
+          ></ImageUploadComponent>
+        </ControlContext.Provider>,
+        container
+      );
+    };
+  }
+}
