@@ -1,0 +1,167 @@
+<ImportExportXml version="9.2.21122.151" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SolutionManifest>
+    <UniqueName>mug2022</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="Manchester UG 2022" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions />
+    <Version>1.0.0.0</Version>
+    <Managed>0</Managed>
+    <Publisher>
+      <UniqueName>eswarpr</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="Eswar Prakash" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions />
+      <EMailAddress>hello@eswarprakash.com</EMailAddress>
+      <SupportingWebsiteUrl>https://github.com/eswarpr</SupportingWebsiteUrl>
+      <CustomizationPrefix>epr</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>78871</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country>United Kingdom</Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="1" schemaName="account" behavior="0" />
+      <RootComponent type="1" schemaName="epr_feedback" behavior="0" />
+      <RootComponent type="1" schemaName="epr_job" behavior="0" />
+      <RootComponent type="1" schemaName="epr_photo" behavior="0" />
+      <RootComponent type="1" schemaName="systemuser" behavior="0" />
+      <RootComponent type="9" schemaName="epr_relevancecheck" behavior="0" />
+      <RootComponent type="9" schemaName="epr_sentiment" behavior="0" />
+      <RootComponent type="29" id="{4fbe3d11-e979-ec11-8d21-0022489ca5ba}" behavior="0" />
+      <RootComponent type="62" schemaName="epr_JobManagement" behavior="0" />
+      <RootComponent type="80" schemaName="epr_JobManagement" behavior="0" />
+      <RootComponent type="91" id="{ef7e2021-a053-4f83-ac7d-96385dadd05a}" schemaName="ImageCheck.ImageCheck, Version=0.1.0.0, Culture=neutral, PublicKeyToken=733975f9f1076551" behavior="0" />
+      <RootComponent type="92" id="{f9fa3824-5762-ec11-8f8f-000d3adccfb6}" behavior="0" />
+      <RootComponent type="300" schemaName="cr817_feedback_1de21" behavior="0" />
+      <RootComponent type="431" schemaName="epr_photo epr_image" behavior="0" />
+      <RootComponent type="432" schemaName="epr_photo" behavior="0" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required type="1" schemaName="adx_invitation" displayName="Invitation" solution="MicrosoftPortalBase (9.2.2103.1)">
+          <package>CDSBasePortal (9.3.2109.20)</package>
+        </Required>
+        <Dependent type="1" schemaName="account" displayName="Account" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="adx_webformsession" displayName="Advanced Form Session" solution="MicrosoftPortalWebForms (9.2.2108.0)">
+          <package>CDSBasePortal (9.3.2109.20)</package>
+        </Required>
+        <Dependent type="1" schemaName="systemuser" displayName="User" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="appusersetting" displayName="Model-Driven App User Setting" solution="AppModule (9.1.21115.211130002)" />
+        <Dependent type="1" schemaName="systemuser" displayName="User" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="bot" displayName="Chatbot" solution="PowerVirtualAgents (2.0.0.87)" />
+        <Dependent type="1" schemaName="systemuser" displayName="User" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_aimodel" displayName="AI Model" solution="msdyn_AISolution (202111.5.2901.1)">
+          <package>msdyn_AISolutionAnchor (202111.5.2901.1)</package>
+        </Required>
+        <Dependent type="300" schemaName="cr817_feedback_1de21" displayName="Feedback" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="usermobileofflineprofilemembership" displayName="UserMobileOfflineProfileMembership" solution="MobileOfflineMembership (1.0.0.2)" />
+        <Dependent type="1" schemaName="systemuser" displayName="User" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msa_managingpartnerid" displayName="Managing Partner" parentSchemaName="account" parentDisplayName="Account" solution="MicrosoftPortalDependencies (9.2.2103.0)">
+          <package>CDSBasePortal (9.3.2109.20)</package>
+        </Required>
+        <Dependent type="10" schemaName="msa_account_managingpartner" displayName="msa_account_managingpartner" parentSchemaName="account" parentDisplayName="Account" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="60" displayName="account contact card" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{29de27bc-a257-4f29-99cf-bab4a84e688f}">
+          <package>msdynce_AppCommonAnchor (9.0.21122.10002)</package>
+        </Required>
+        <Dependent type="60" displayName="Account" parentDisplayName="Account" id="{8448b78f-8f42-454e-8e2a-f8196b0419af}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="60" displayName="Account" parentDisplayName="Account" solution="msdynce_AppCommon (9.0.4.0066)" id="{8448b78f-8f42-454e-8e2a-f8196b0419af}">
+          <package>msdynce_AppCommonAnchor (9.0.21122.10002)</package>
+        </Required>
+        <Dependent type="60" displayName="Account" parentDisplayName="Account" id="{8448b78f-8f42-454e-8e2a-f8196b0419af}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)" />
+        <Dependent type="80" schemaName="epr_JobManagement" displayName="Job Management" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="epr_PowerControls.FeedbackGauge" displayName="epr_PowerControls.FeedbackGauge" solution="AIInPracticeComponents (1.0.12)" />
+        <Dependent type="60" displayName="Account" parentDisplayName="Account" id="{8448b78f-8f42-454e-8e2a-f8196b0419af}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="epr_PowerControls.ImageListView" displayName="epr_PowerControls.ImageListView" solution="AIInPracticeComponents (1.0.12)" />
+        <Dependent type="60" displayName="Information" parentDisplayName="Job" id="{4e1f243e-6e8e-4885-9b67-a1444c58af0b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="epr_PowerControls.ImageUpload" displayName="epr_PowerControls.ImageUpload" solution="AIInPracticeComponents (1.0.12)" />
+        <Dependent type="60" displayName="Information" parentDisplayName="Photo" id="{e4c4fa4d-70b6-4656-b7c2-857a442af97e}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.CardFeedContainer.CardFeedContainer" displayName="MscrmControls.CardFeedContainer.CardFeedContainer" solution="BaseCustomControlsCore (9.0.2112.2010)" />
+        <Dependent type="60" displayName="Account" parentDisplayName="Account" id="{8448b78f-8f42-454e-8e2a-f8196b0419af}" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>

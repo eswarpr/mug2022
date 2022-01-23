@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest>
-  <control namespace="PowerControls" constructor="ImageUpload" version="0.0.25" display-name-key="Control_Name" description-key="Control_Description" control-type="standard">
+  <control namespace="PowerControls" constructor="ImageUpload" version="0.0.32" display-name-key="Control_Name" description-key="Control_Description" control-type="standard">
     <!--external-service-usage node declares whether this 3rd party PCF control is using external service or not, if yes, this control will be considered as premium and please also add the external domain it is using.
     If it is not using any external service, please set the enabled="false" and DO NOT add any domain below. The "enabled" will be false by default.
     Example1:
@@ -19,6 +19,8 @@
     </external-service-usage>
     <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
     <property name="value" display-name-key="Value_Name" description-key="Value_Description" of-type="SingleLine.Text" usage="bound" required="true" />
+    <property name="description" display-name-key="Description_Name" description-key="Description_Description" of-type="Multiple" usage="bound" required="true" />
+    <property name="relevanceCheck" display-name-key="RelevanceCheck_Name" description-key="RelevanceCheck_Description" of-type="OptionSet" usage="bound" required="true" />
     <property name="cognitiveServiceEndPoint" display-name-key="AzureCS_Endpoint_Name" description-key="AzureCS_EndPoint_Description" of-type="SingleLine.Text" usage="input" required="false" />
     <property name="cognitiveServiceKey" display-name-key="AzureCS_Key_Name" description-key="AzureCS_Key_Description" of-type="SingleLine.Text" usage="input" required="false" />
     <!-- 

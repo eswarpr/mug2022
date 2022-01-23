@@ -118,51 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Control_Name" xml:space="preserve">
-    <value>Image Upload</value>
+    <value>Image List View</value>
     <comment/>
   </data>
   <data name="Control_Description" xml:space="preserve">
-    <value>Use this control for enhanced editing experience for Image fields including ability to use Cognitive Services for perform AI based analysis of uploaded images</value>
+    <value>A control that can be used to replace a subgrid to present a list of images from the underlying dataset</value>
     <comment/>
   </data>
-  <data name="Value_Name" xml:space="preserve">
-    <value>Value</value>
-    <comment/>
-  </data>
-  <data name="Value_Description" xml:space="preserve">
-    <value>The value to bind the control to</value>
-    <comment/>
-  </data>
-  <data name="AzureCS_Endpoint_Name" xml:space="preserve">
-    <value>Cognitive Services Endpoint URL</value>
-    <comment/>
-  </data>
-  <data name="AzureCS_Endpoint_Description" xml:space="preserve">
-    <value>The URL to the Azure cognitive services endpoint</value>
-    <comment/>
-  </data>
-  <data name="AzureCS_Key_Name" xml:space="preserve">
-    <value>Cognitive Services Access Key</value>
-    <comment/>
-  </data>
-  <data name="AzureCS_Key_Description" xml:space="preserve">
-    <value>The access key for the Azure Cognitive Services instance</value>
-    <comment/>
-  </data>
-  <data name="Tags_Name" xml:space="preserve">
-    <value>Tags</value>
-    <comment/>
-  </data>
-  <data name="Tags_Description" xml:space="preserve">
-    <value>Various search tags for the entity image</value>
-    <comment/>
-  </data>
-  <data name="Description_Name" xml:space="preserve">
-    <value>Description</value>
-    <comment/>
-  </data>
-  <data name="Description_Description" xml:space="preserve">
-    <value>Description of the uploaded photo that was automatically generated from cognitive services</value>
+  <data name="ImageList_DisplayName" xml:space="preserve">
+    <value>List of images to display</value>
     <comment/>
   </data>
 </root>

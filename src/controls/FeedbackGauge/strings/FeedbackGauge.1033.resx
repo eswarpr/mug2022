@@ -118,51 +118,47 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Control_Name" xml:space="preserve">
-    <value>Image Upload</value>
+    <value>Feedback Gauge</value>
     <comment/>
   </data>
   <data name="Control_Description" xml:space="preserve">
-    <value>Use this control for enhanced editing experience for Image fields including ability to use Cognitive Services for perform AI based analysis of uploaded images</value>
+    <value>Presents a gauge chart of the feedback received from a customer</value>
+    <comment/>
+  </data>
+  <data name="FeedbackDataset_Name" xml:space="preserve">
+    <value>Feedback List</value>
     <comment/>
   </data>
   <data name="Value_Name" xml:space="preserve">
-    <value>Value</value>
+    <value>Positive Feedback Level</value>
     <comment/>
   </data>
   <data name="Value_Description" xml:space="preserve">
-    <value>The value to bind the control to</value>
+    <value>The positive experience of the customer when doing work with us</value>
     <comment/>
   </data>
-  <data name="AzureCS_Endpoint_Name" xml:space="preserve">
-    <value>Cognitive Services Endpoint URL</value>
+  <data name="PositiveFeedbackCount_Name" xml:space="preserve">
+    <value>No. of Positive Feedbacks</value>
     <comment/>
   </data>
-  <data name="AzureCS_Endpoint_Description" xml:space="preserve">
-    <value>The URL to the Azure cognitive services endpoint</value>
+  <data name="PositiveFeedbackCount_Description" xml:space="preserve">
+    <value>Number of times customers have rated our work positively </value>
     <comment/>
   </data>
-  <data name="AzureCS_Key_Name" xml:space="preserve">
-    <value>Cognitive Services Access Key</value>
+  <data name="MixedFeedbackCount_Name" xml:space="preserve">
+    <value>No. of Mixed Feedbacks</value>
     <comment/>
   </data>
-  <data name="AzureCS_Key_Description" xml:space="preserve">
-    <value>The access key for the Azure Cognitive Services instance</value>
+  <data name="MixedFeedbackCount_Description" xml:space="preserve">
+    <value>Number of times customers have given our work a mixed reaction</value>
     <comment/>
   </data>
-  <data name="Tags_Name" xml:space="preserve">
-    <value>Tags</value>
+  <data name="NegativeFeedbackCount_Name" xml:space="preserve">
+    <value>No. of Negative Feedbacks</value>
     <comment/>
   </data>
-  <data name="Tags_Description" xml:space="preserve">
-    <value>Various search tags for the entity image</value>
-    <comment/>
-  </data>
-  <data name="Description_Name" xml:space="preserve">
-    <value>Description</value>
-    <comment/>
-  </data>
-  <data name="Description_Description" xml:space="preserve">
-    <value>Description of the uploaded photo that was automatically generated from cognitive services</value>
+  <data name="NegativeFeedbackCount_Description" xml:space="preserve">
+    <value>Number of times customers have rated our work negatively</value>
     <comment/>
   </data>
 </root>

@@ -8,8 +8,10 @@ import {
   mergeStyleSets,
   Stack,
   useTheme,
-  AnimationStyles,
-  IButtonStyles,
+  IStackStyles,
+  Dialog,
+  Label,
+  Text,
 } from "@fluentui/react";
 import { useBoolean, useConst } from "@fluentui/react-hooks";
 
@@ -19,11 +21,15 @@ const ImageUploadComponent: React.FC<IImageUploadComponentProps> = ({
 }) => {
   const [imageFieldName, setImageFieldName] = React.useState<string>();
   const [imageValue, setImageValue] = React.useState<any>();
-  const [
-    buttonPaneShown,
-    { setTrue: showButtonPane, setFalse: hideButtonPane },
-  ] = useBoolean(false);
   const [imageAltText, setImageAltText] = React.useState<string>();
+  const [
+    expandedViewOpen,
+    { setTrue: showExpandedView, setFalse: hideExpandedView },
+  ] = useBoolean(false);
+  const [
+    confirmImageUploaded,
+    { setTrue: showUploadConfirmation, setFalse: hideUploadConfirmation },
+  ] = useBoolean(false);
   const theme = useTheme();
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 
@@ -36,13 +42,15 @@ const ImageUploadComponent: React.FC<IImageUploadComponentProps> = ({
       !!imageFieldName &&
       !!!imageValue.url &&
       !!imageValue.dataUrl &&
-      !!imageValue.image
+      !!imageValue.image &&
+      !!imageAltText
     ) {
       const primaryId = service.getPrimaryId();
       const utility = service.getFormContext().utils;
       const clientUrl = service.getFormContext().page.getClientUrl();
       const entityName = primaryId.entityType;
       const entityId = primaryId.id;
+      const setParameters = service.setParameters.bind(service);
 
       (async () => {
         // get the entity metadata
@@ -60,11 +68,15 @@ const ImageUploadComponent: React.FC<IImageUploadComponentProps> = ({
         );
 
         if (!!results.ok) {
-          alert("The image has been updated");
+          setParameters<IOutputs>({
+            description: imageAltText,
+            relevanceCheck: 788710000,
+          });
+          showUploadConfirmation();
         }
       })();
     }
-  }, [service, imageValue, imageFieldName]);
+  }, [service, imageValue, imageFieldName, imageAltText]);
 
   React.useEffect(() => {
     if (!!service && !!imageValue && !!imageValue.image) {
@@ -155,7 +167,6 @@ const ImageUploadComponent: React.FC<IImageUploadComponentProps> = ({
   React.useEffect(() => {
     if (!!service && !!imageFieldName) {
       const primaryId = service.getPrimaryId();
-      const utils = service.getFormContext().utils;
       const webApi = service.getFormContext().webAPI;
 
       const { id: entityId, entityType } = primaryId;
@@ -176,7 +187,7 @@ const ImageUploadComponent: React.FC<IImageUploadComponentProps> = ({
     }
   }, [service, imageFieldName]);
 
-  const { root, overlay, buttonPane } = mergeStyleSets({
+  const { root } = mergeStyleSets({
     root: {
       position: "relative",
     },
@@ -189,22 +200,7 @@ const ImageUploadComponent: React.FC<IImageUploadComponentProps> = ({
       display: "flex",
       justifyContent: "flex-end",
     },
-    buttonPane: {
-      width: 32,
-      backgroundColor: theme.palette.blackTranslucent40,
-      zIndex: 9999,
-      height: "100%",
-      ...AnimationStyles.fadeIn100,
-    },
   });
-
-  const handleOverlayMouseEnter = () => {
-    showButtonPane();
-  };
-
-  const handleOverlayMouseLeave = () => {
-    hideButtonPane();
-  };
 
   const imageActions = useConst([
     {
@@ -219,24 +215,10 @@ const ImageUploadComponent: React.FC<IImageUploadComponentProps> = ({
     },
   ]);
 
-  const imageActionStyles: IButtonStyles = {
-    icon: {
-      width: 14,
-      fontSize: 14,
-      color: "rgba(255, 255, 255, 0.8)",
-    },
-    iconHovered: {
-      backgroundColor: theme.palette.black,
-      color: "rgba(255, 255, 255, 0.9)",
-    },
-    iconPressed: {
-      color: theme.palette.white,
-    },
-    rootHovered: {
-      backgroundColor: theme.palette.black,
-    },
-    rootPressed: {
-      backgroundColor: theme.palette.black,
+  const buttonPane: IStackStyles = {
+    root: {
+      //flex: 1,
+      backgroundColor: theme.palette.neutralLight,
     },
   };
 
@@ -249,15 +231,11 @@ const ImageUploadComponent: React.FC<IImageUploadComponentProps> = ({
         }
         break;
       }
+      case "view": {
+        showExpandedView();
+        break;
+      }
     }
-  };
-
-  const handleOverlayFocus = (ev: React.FocusEvent<HTMLDivElement>) => {
-    showButtonPane();
-  };
-
-  const handleOverlayBlur = (ev: React.FocusEvent<HTMLDivElement>) => {
-    hideButtonPane();
   };
 
   const handleFileSelectionChange = () => {
@@ -291,51 +269,84 @@ const ImageUploadComponent: React.FC<IImageUploadComponentProps> = ({
         aria-hidden="true"
       ></input>
       <Stack horizontal role="group">
-        <div role="img">
-          <Image
-            src={
-              imageValue?.dataUrl ||
-              imageValue?.url ||
-              "https://via.placeholder.com/144x144.png?text=Preview"
-            }
-            width={144}
-            alt={imageAltText}
-          ></Image>
-        </div>
-        <div
-          role="img"
+        <Image
+          src={
+            imageValue?.dataUrl ||
+            imageValue?.url ||
+            "https://via.placeholder.com/144x144.png?text=Preview"
+          }
           tabIndex={0}
-          className={overlay}
-          onMouseEnter={handleOverlayMouseEnter}
-          onMouseLeave={handleOverlayMouseLeave}
-          aria-label={imageAltText}
+          width={144}
+          alt={imageAltText}
+        ></Image>
+        <Stack
+          tokens={{
+            childrenGap: 4,
+          }}
+          tabIndex={1}
+          styles={buttonPane}
+          role="menu"
         >
-          {!!buttonPaneShown && (
-            <Stack
-              tokens={{
-                childrenGap: 4,
+          {imageActions.map((x, n) => (
+            <IconButton
+              role="menuitem"
+              key={x.key}
+              //styles={imageActionStyles}
+              iconProps={{
+                iconName: x.iconName,
               }}
-              className={buttonPane}
-              role="menu"
-            >
-              {imageActions.map((x, n) => (
-                <IconButton
-                  role="menuitem"
-                  key={x.key}
-                  styles={imageActionStyles}
-                  iconProps={{
-                    iconName: x.iconName,
-                  }}
-                  tabIndex={n}
-                  alt={x.alt}
-                  ariaLabel={x.alt}
-                  onClick={(ev) => handleActionClick(x.key)}
-                ></IconButton>
-              ))}
-            </Stack>
-          )}
-        </div>
+              tabIndex={n}
+              alt={x.alt}
+              ariaLabel={x.alt}
+              onClick={(ev) => handleActionClick(x.key)}
+            ></IconButton>
+          ))}
+        </Stack>
       </Stack>
+      {!!expandedViewOpen && (
+        <Dialog
+          styles={{
+            main: {
+              minWidth: 400,
+            },
+          }}
+          onDismiss={hideExpandedView}
+          hidden={!!!expandedViewOpen}
+          dialogContentProps={{
+            title: "View Image",
+            showCloseButton: true,
+          }}
+        >
+          <Stack horizontal tokens={{ childrenGap: 8 }}>
+            <Image
+              src={
+                imageValue?.dataUrl ||
+                imageValue?.url ||
+                "https://via.placeholder.com/144x144.png?text=Preview"
+              }
+              tabIndex={0}
+              width={144}
+              alt={imageAltText}
+            ></Image>
+            <Stack>
+              <Label>Image Description</Label>
+              <Text variant="medium">{imageAltText}</Text>
+            </Stack>
+          </Stack>
+        </Dialog>
+      )}
+      {!!confirmImageUploaded && (
+        <Dialog
+          onDismiss={hideUploadConfirmation}
+          hidden={!!!confirmImageUploaded}
+          dialogContentProps={{
+            title: "Image Uploaded",
+            showCloseButton: true,
+          }}
+        >
+          The image has been successfully uploaded
+        </Dialog>
+      )}
     </div>
   );
 };
