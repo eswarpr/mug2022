@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useEntityRecords, useParameters } from "../../shared";
+import { useParameters } from "../../shared";
 import { IInputs } from "../generated/ManifestTypes";
 import { IFeedbackGaugeComponentProps } from "./FeedbackGauge.types";
 import { arc } from "d3-shape";
@@ -16,7 +16,9 @@ const FeedbackGaugeComponent: React.FC<IFeedbackGaugeComponentProps> = ({
   width,
   height,
 }) => {
-  const [shapeParams, setShapeParams] = React.useState<IGaugeShapeParameters>();
+  const [shapeParams, setShapeParams] = React.useState<IGaugeShapeParameters>({
+    width: 300,
+  });
   const theme = useTheme();
   const backgroundArc = arc().cornerRadius(1)({
     innerRadius: 0.65,

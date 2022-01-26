@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest>
-  <control namespace="PowerControls" constructor="FeedbackGauge" version="0.0.5" display-name-key="Control_Name" description-key="Control_Description" control-type="standard">
+  <control namespace="PowerControls" constructor="FeedbackGauge" version="0.0.8" display-name-key="Control_Name" description-key="Control_Description" control-type="standard">
     <external-service-usage enabled="false"></external-service-usage>
     <property name="value" display-name-key="Value_Name" description-key="Value_Description" of-type="Decimal" usage="bound" required="true" />
     <property name="positiveFeedbackCount" display-name-key="PositiveFeedbackCount_Name" description-key="PositiveFeedbackCount_Description" of-type="Whole.None" usage="bound" required="true" />

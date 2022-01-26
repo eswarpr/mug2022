@@ -132,6 +132,9 @@ const ImageListViewComponent: React.FC<IImageListViewComponentProps> = ({
       }}
     >
       {!!photos && photos.map((photo) => getDocumentCard(photo))}
+      {(!!!photos || photos.length === 0) && (
+        <Text variant="medium">There are no photos to display here</Text>
+      )}
     </Stack>
   );
 };

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest>
-  <control namespace="PowerControls" constructor="ImageListView" version="0.0.6" display-name-key="Control_Name" description-key="Control_Description" control-type="standard">
+  <control namespace="PowerControls" constructor="ImageListView" version="0.0.9" display-name-key="Control_Name" description-key="Control_Description" control-type="standard">
     <external-service-usage enabled="false"></external-service-usage>
     <data-set name="dataset" display-name-key="ImageList_DisplayName"></data-set>
     <resources>

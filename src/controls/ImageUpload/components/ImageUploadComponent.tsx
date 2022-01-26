@@ -12,6 +12,8 @@ import {
   Dialog,
   Label,
   Text,
+  MessageBar,
+  MessageBarType,
 } from "@fluentui/react";
 import { useBoolean, useConst } from "@fluentui/react-hooks";
 
@@ -32,6 +34,7 @@ const ImageUploadComponent: React.FC<IImageUploadComponentProps> = ({
   ] = useBoolean(false);
   const theme = useTheme();
   const fileInputRef = React.useRef<HTMLInputElement>(null);
+  const [isNewRecord, { setTrue: setIsNewRecord }] = useBoolean(false);
 
   const service = useControlContext();
 
@@ -124,8 +127,15 @@ const ImageUploadComponent: React.FC<IImageUploadComponentProps> = ({
       const primaryId = service.getPrimaryId();
       const utils = service.getFormContext().utils;
       const clientUrl = service.getFormContext().page.getClientUrl();
+      const modeContext = service.getFormContext().mode.contextInfo;
 
       const entityName = primaryId.entityType;
+
+      // is new or existing
+      if (!!!modeContext.entityId) {
+        setIsNewRecord();
+        return;
+      }
 
       if (!!params) {
         // the field attributes for the bound field
@@ -257,7 +267,7 @@ const ImageUploadComponent: React.FC<IImageUploadComponentProps> = ({
     }
   };
 
-  return (
+  return !!!isNewRecord ? (
     <div className={root}>
       <input
         type="file"
@@ -348,6 +358,10 @@ const ImageUploadComponent: React.FC<IImageUploadComponentProps> = ({
         </Dialog>
       )}
     </div>
+  ) : (
+    <MessageBar messageBarType={MessageBarType.info}>
+      Please save this record before uploading images
+    </MessageBar>
   );
 };
 
